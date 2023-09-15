@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Embedded YouTube Video</title>
-  </head>
-  <body>
-    <h1>Embedded YouTube Video</h1>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/-x1ku2ceFZ4?autoplay=1&mute=1"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
-  </body>
+<head>
+  <title>Random Website Opener</title>
+</head>
+<body>
+  <script>
+    function openRandomWebsites() {
+      const websites = [
+        
+'https://youtu.be/M8LgXY6uhTI',
+'https://youtu.be/D9HVQ8TdmEo',
+'https://youtu.be/9FKqTWPx0cg',
+'https://youtu.be/sD6j6ii3sJ4',
+'https://youtu.be/xTM2J7_ZM0I',
+'https://youtu.be/GV0THoh2CF8',
+'https://youtu.be/a7hwwBNuOm0',
+'https://youtu.be/Vm51JEvkq1Y'
+
+      ];
+
+      // Shuffle the array of websites to randomize them
+      for (let i = websites.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [websites[i], websites[j]] = [websites[j], websites[i]];
+      }
+
+      // Open the websites one by one after a 5-second delay
+      let delay = 5000; // 5 seconds in milliseconds
+      websites.forEach((website, index) => {
+        setTimeout(() => {
+          window.open(website, '_blank');
+        }, delay * index);
+      });
+    }
+
+    // Call the function to start opening websites after the page loads
+    window.addEventListener('load', openRandomWebsites);
+  </script>
+</body>
 </html>
