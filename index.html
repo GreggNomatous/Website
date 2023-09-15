@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Random Website Opener</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Website Redirection</title>
 </head>
 <body>
-  <script>
-    function openRandomWebsites() {
-      const websites = [
+    <h1>Click the button to randomly open a website after 5 seconds:</h1>
+    <button id="redirectButton">Random Website</button>
+
+    <script>
+        // Array of websites to choose from
+        const websites = [
 
 'https://youtu.be/M8LgXY6uhTI',
 'https://youtu.be/D9HVQ8TdmEo',
@@ -15,27 +20,21 @@
 'https://youtu.be/xTM2J7_ZM0I',
 'https://youtu.be/GV0THoh2CF8',
 'https://youtu.be/a7hwwBNuOm0',
-'https://youtu.be/Vm51JEvkq1Y'
+'https://youtu.be/Vm51JEvkq1Y',
 
-      ];
+        ];
 
-      // Shuffle the array of websites to randomize them
-      for (let i = websites.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [websites[i], websites[j]] = [websites[j], websites[i]];
-      }
+        // Function to redirect to a random website
+        function redirectToRandomWebsite() {
+            const randomIndex = Math.floor(Math.random() * websites.length);
+            const randomWebsite = websites[randomIndex];
+            window.location.href = randomWebsite;
+        }
 
-      // Open the websites in the same tab after a 5-second delay
-      let delay = 5000; // 5 seconds in milliseconds
-      websites.forEach((website, index) => {
-        setTimeout(() => {
-          window.location.href = website;
-        }, delay * index);
-      });
-    }
-
-    // Call the function to start opening websites after the page loads
-    window.addEventListener('load', openRandomWebsites);
-  </script>
+        // Add a click event listener to the button
+        document.getElementById('redirectButton').addEventListener('click', () => {
+            setTimeout(redirectToRandomWebsite, 5000); // 5000 milliseconds = 5 seconds
+        });
+    </script>
 </body>
 </html>
