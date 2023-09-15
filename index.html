@@ -7,7 +7,7 @@
   <script>
     function openRandomWebsites() {
       const websites = [
-        
+
 'https://youtu.be/M8LgXY6uhTI',
 'https://youtu.be/D9HVQ8TdmEo',
 'https://youtu.be/9FKqTWPx0cg',
@@ -25,11 +25,11 @@
         [websites[i], websites[j]] = [websites[j], websites[i]];
       }
 
-      // Open the websites one by one after a 5-second delay
+      // Open the websites in the same tab after a 5-second delay
       let delay = 5000; // 5 seconds in milliseconds
       websites.forEach((website, index) => {
         setTimeout(() => {
-          window.open(website, '_blank');
+          window.location.href = website;
         }, delay * index);
       });
     }
